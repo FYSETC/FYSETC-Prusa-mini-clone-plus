@@ -1,0 +1,44 @@
+From 49d1f2c9b4d03036bb1b50e8beca73c710501725 Mon Sep 17 00:00:00 2001
+From: George Fu <nailao_5918@163.com>
+Date: Fri, 23 Oct 2020 14:47:56 +0800
+Subject: [PATCH] Patch for FYSETC Prusa mini clone plus
+
+---
+ include/marlin/Configuration_A3ides_2209_MINI.h | 4 ++--
+ src/gui/wizard/firstlay.c                       | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/include/marlin/Configuration_A3ides_2209_MINI.h b/include/marlin/Configuration_A3ides_2209_MINI.h
+index aef34b41..8867cf4b 100644
+--- a/include/marlin/Configuration_A3ides_2209_MINI.h
++++ b/include/marlin/Configuration_A3ides_2209_MINI.h
+@@ -995,11 +995,11 @@
+ 
+ // The size of the print bed
+ #define X_BED_SIZE 180
+-#define Y_BED_SIZE 180
++#define Y_BED_SIZE 250
+ 
+ // Travel limits (mm) after homing, corresponding to endstop positions.
+ #define X_MIN_POS -2
+-#define Y_MIN_POS -3
++#define Y_MIN_POS -6
+ #define Z_MIN_POS 0
+ #define X_MAX_POS X_BED_SIZE
+ #define Y_MAX_POS Y_BED_SIZE
+diff --git a/src/gui/wizard/firstlay.c b/src/gui/wizard/firstlay.c
+index 781a0968..354f289a 100644
+--- a/src/gui/wizard/firstlay.c
++++ b/src/gui/wizard/firstlay.c
+@@ -337,7 +337,7 @@ const size_t V2_gcodes_head_FLEX_sz = sizeof(V2_gcodes_head_FLEX) / sizeof(V2_gc
+ //todo generate me
+ const char *V2_gcodes_body[] = {
+     "G1 Z4 F1000",
+-    "G1 X0 Y-2 Z0.2 F3000.0",
++    "G1 X0 Y0 Z0.2 F3000.0",
+     "G1 E6 F2000",
+     "G1 X60 E9 F1000.0",
+     "G1 X100 E12.5 F1000.0",
+-- 
+2.18.0.windows.1
+
