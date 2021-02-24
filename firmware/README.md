@@ -12,7 +12,13 @@ The ```firmware.hex``` beside this README file is base on PRUSA RELEASE-4.0.5 , 
 
 And if you think the firmware is too old , and you want to build your own firmware base on the Prusa latest firmware. Then let me tell you what need to change for FYSETC Prusa mini clone plus machine. 
 
-There is a patch file named ```0001-Patch-for-FYSETC-Prusa-mini-clone-plus.patch```. So if you know ```git diff``` ,then it's easy for you to know the changes. And if not,  below are the changes
+There are patch files named ```0001-Patch-for-FYSETC-Prusa-mini-clone-plus.patch``` and `0002-Fix-y-axis-self-test-bug.patch`. So if you know ```git diff``` ,then it's easy for you to know the changes. And if not,  below are the changes
+
+In file `src/gui/gui_config_mini.h` following define is changed.
+
+```
+#define Y_LEN 253
+```
 
 In file ```include/marlin/Configuration_A3ides_2209_MINI.h``` following defines are changed.
 
