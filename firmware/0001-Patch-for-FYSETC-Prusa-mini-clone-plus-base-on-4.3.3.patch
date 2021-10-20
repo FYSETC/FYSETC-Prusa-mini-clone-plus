@@ -1,12 +1,13 @@
-From fd3569bfa60c5065184637cef542afc25fe04efa Mon Sep 17 00:00:00 2001
+From 246bf02142440cb449b24909d66df4b31518cc5f Mon Sep 17 00:00:00 2001
 From: George Fu <nailao_5918@163.com>
 Date: Wed, 20 Oct 2021 15:52:14 +0800
 Subject: [PATCH] Patch for FYSETC Prusa mini clone plus base on RELEASE-4.3.3
 
 ---
  include/marlin/Configuration_A3ides_2209_MINI.h | 4 ++--
+ src/common/selftest/selftest_MINI.cpp           | 2 +-
  src/gui/gui_config_mini.h                       | 2 +-
- 2 files changed, 3 insertions(+), 3 deletions(-)
+ 3 files changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/include/marlin/Configuration_A3ides_2209_MINI.h b/include/marlin/Configuration_A3ides_2209_MINI.h
 index caf2e9cf..bb85198f 100644
@@ -26,6 +27,19 @@ index caf2e9cf..bb85198f 100644
  #define Z_MIN_POS 0
  #define X_MAX_POS X_BED_SIZE
  #define Y_MAX_POS Y_BED_SIZE
+diff --git a/src/common/selftest/selftest_MINI.cpp b/src/common/selftest/selftest_MINI.cpp
+index 29b07b4e..693afbac 100644
+--- a/src/common/selftest/selftest_MINI.cpp
++++ b/src/common/selftest/selftest_MINI.cpp
+@@ -52,7 +52,7 @@ static const selftest_fan_config_t Config_Fan1 = { .partname = "Fan1", .fanctl =
+ 
+ static const selftest_axis_config_t Config_XAxis = { .partname = "X-Axis", .length = 186, .fr_table = XYfr_table, .length_min = 178, .length_max = 188, .axis = X_AXIS, .steps = 4, .dir = -1 };
+ 
+-static const selftest_axis_config_t Config_YAxis = { .partname = "Y-Axis", .length = 185, .fr_table = XYfr_table, .length_min = 179, .length_max = 189, .axis = Y_AXIS, .steps = 4, .dir = 1 };
++static const selftest_axis_config_t Config_YAxis = { .partname = "Y-Axis", .length = 255, .fr_table = XYfr_table, .length_min = 249, .length_max = 259, .axis = Y_AXIS, .steps = 4, .dir = 1 };
+ 
+ static const selftest_axis_config_t Config_ZAxis = { .partname = "Z-Axis", .length = get_z_max_pos_mm(), .fr_table = Zfr_table, .length_min = get_z_max_pos_mm() - 4, .length_max = get_z_max_pos_mm() + 6, .axis = Z_AXIS, .steps = 1, .dir = 1 };
+ 
 diff --git a/src/gui/gui_config_mini.h b/src/gui/gui_config_mini.h
 index 9996cd8b..3c126ac3 100644
 --- a/src/gui/gui_config_mini.h

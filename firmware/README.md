@@ -4,15 +4,15 @@ You can use the pre-compiled firmware or custom firmware for  FYSETC Prusa mini 
 
 ## Pre-compiled firmware
 
-There are two pre-build firmware for you. One is ```RELEASE-4.0.5-Modified.hex``` beside this `README` file which is base on PRUSA firmware `RELEASE-4.0.5`, the other is `RELEASE-4.3.3-Modified.hex` which is base on PRUSA firmware `RELEASE-4.3.3` version. You can choose on and directly upload this firmware to the board. Follow the [Upload firmware](#jump) instructions.
+There is pre-build firmware for you. It is ```RELEASE-4.3.3-Modified.hex``` beside this `README` file which is base on PRUSA firmware `RELEASE-4.3.3` version. You can directly upload this firmware to the board. Follow the [Upload firmware](#jump) instructions.
 
 ## Custom firmware
 
 ### Generate firmware from Prusa firmware
 
-And if you think the firmware is too old , and you want to build your own firmware base on the Prusa release firmware. Then let me tell you what need to change for FYSETC Prusa mini clone plus machine. We give you two samples, one is base on `RELEASE-4.0.5` versions and the other is base on `RELEASE-4.3.3`
+And if you think the firmware is too old and you want to build your own firmware base on the Prusa release firmware. Then let me tell you what need to change for FYSETC Prusa mini clone plus machine. 
 
-#### 1. Base on RELEASE-4.3.3 version
+#### Base on RELEASE-4.3.3 version
 
 There is patch file named ```0001-Patch-for-FYSETC-Prusa-mini-clone-plus-base-on-4.3.3.patch``` . So if you know ```git diff``` ,then it's easy for you to know the changes. And if not,  below are the changes
 
@@ -29,42 +29,10 @@ In file ```include/marlin/Configuration_A3ides_2209_MINI.h``` following defines 
 #define Y_MIN_POS -6
 ```
 
-#### 2. Base on RELEASE-4.0.5 version
-
-There are patch files named ```0001-Patch-for-FYSETC-Prusa-mini-clone-plus.patch``` and `0002-Fix-y-axis-self-test-bug.patch`. So if you know ```git diff``` ,then it's easy for you to know the changes. And if not,  below are the changes
-
-In file `src/gui/gui_config_mini.h` following define is changed.
+In file `src/common/selftest/selftest_MINI.cpp` following variable is changed.
 
 ```
-#define Y_LEN 253
-```
-
-In file ```include/marlin/Configuration_A3ides_2209_MINI.h``` following defines are changed.
-
-```
-#define Y_BED_SIZE 250
-#define Y_MIN_POS -6
-```
-
-In file ```src/gui/wizard/firstlay.c``` , change following
-
-```
- const char *V2_gcodes_body[] = {
-     "G1 Z4 F1000",
-     "G1 X0 Y-2 Z0.2 F3000.0",
-     "G1 E6 F2000",
-     "G1 X60 E9 F1000.0",
-     "G1 X100 E12.5 F1000.0",
-```
-
-to
-```
- const char *V2_gcodes_body[] = {
-     "G1 Z4 F1000",
-     "G1 X0 Y0 Z0.2 F3000.0",
-     "G1 E6 F2000",
-     "G1 X60 E9 F1000.0",
-     "G1 X100 E12.5 F1000.0",
+static const selftest_axis_config_t Config_YAxis = { .partname = "Y-Axis", .length = 255, .fr_table = XYfr_table, .length_min = 249, .length_max = 259, .axis = Y_AXIS, .steps = 4, .dir = 1 };
 ```
 
 ### Build firmware
@@ -95,4 +63,4 @@ https://www.st.com/zh/development-tools/stm32cubeprog.html
 
 Note: 
 
-On step 5, choose `RELEASE-4.3.3-Modified.hex` or `RELEASE-4.0.5-Modified.hex`
+On step 5, choose `RELEASE-4.3.3-Modified.hex`.
