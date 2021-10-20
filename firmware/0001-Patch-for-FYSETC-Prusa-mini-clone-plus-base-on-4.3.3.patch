@@ -1,0 +1,44 @@
+From fd3569bfa60c5065184637cef542afc25fe04efa Mon Sep 17 00:00:00 2001
+From: George Fu <nailao_5918@163.com>
+Date: Wed, 20 Oct 2021 15:52:14 +0800
+Subject: [PATCH] Patch for FYSETC Prusa mini clone plus base on RELEASE-4.3.3
+
+---
+ include/marlin/Configuration_A3ides_2209_MINI.h | 4 ++--
+ src/gui/gui_config_mini.h                       | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/include/marlin/Configuration_A3ides_2209_MINI.h b/include/marlin/Configuration_A3ides_2209_MINI.h
+index caf2e9cf..bb85198f 100644
+--- a/include/marlin/Configuration_A3ides_2209_MINI.h
++++ b/include/marlin/Configuration_A3ides_2209_MINI.h
+@@ -977,11 +977,11 @@
+ 
+ // The size of the print bed
+ #define X_BED_SIZE 180
+-#define Y_BED_SIZE 180
++#define Y_BED_SIZE 250
+ 
+ // Travel limits (mm) after homing, corresponding to endstop positions.
+ #define X_MIN_POS -2
+-#define Y_MIN_POS -3
++#define Y_MIN_POS -6
+ #define Z_MIN_POS 0
+ #define X_MAX_POS X_BED_SIZE
+ #define Y_MAX_POS Y_BED_SIZE
+diff --git a/src/gui/gui_config_mini.h b/src/gui/gui_config_mini.h
+index 9996cd8b..3c126ac3 100644
+--- a/src/gui/gui_config_mini.h
++++ b/src/gui/gui_config_mini.h
+@@ -3,7 +3,7 @@
+ 
+ // axis length [mm] - PRINTER MINI
+ static const uint8_t X_LEN = 184;
+-static const uint8_t Y_LEN = 183;
++static const uint8_t Y_LEN = 253;
+ static const uint8_t Z_LEN = 186;
+ 
+ // tolerance (common for all axes)
+-- 
+2.31.1.windows.1
+
