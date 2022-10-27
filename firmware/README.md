@@ -2,13 +2,19 @@
 
 You can use the pre-compiled firmware or custom firmware for  FYSETC Prusa mini clone plus machine.
 
-## Pre-compiled firmware
+## 1. Pre-build firmware
 
-There is pre-build firmware for you. It is ```RELEASE-4.3.3-Modified.hex``` beside this `README` file which is base on PRUSA firmware `RELEASE-4.3.3` version. You can directly upload this firmware to the board. Follow the [Upload firmware](#jump) instructions.
+### 1.1 For plus kit
 
-## Custom firmware
+There is pre-build firmware for you. It is ```RELEASE-4.3.3-Modified-boot2.0.2.zip```(You need to unzip it to get .hex file) beside this `README` file which is base on PRUSA firmware `RELEASE-4.3.3` version. You can directly upload this firmware to the board. Follow the [Upload firmware](#jump) instructions.
 
-### Generate firmware from Prusa firmware
+### 1.2 Back to prusa firmware
+
+You can upload the firmware `Buddy_4.4.0-RC1.hex` (Unzip Buddy_4.4.0-RC1.zip to get it) to go back to original prusa firmware.
+
+## 3. Custom firmware
+
+### 3.1 Generate firmware from Prusa firmware
 
 And if you think the firmware is too old and you want to build your own firmware base on the Prusa release firmware. Then let me tell you what need to change for FYSETC Prusa mini clone plus machine. 
 
@@ -35,11 +41,11 @@ In file `src/common/selftest/selftest_MINI.cpp` following variable is changed.
 static const selftest_axis_config_t Config_YAxis = { .partname = "Y-Axis", .length = 255, .fr_table = XYfr_table, .length_min = 249, .length_max = 259, .axis = Y_AXIS, .steps = 4, .dir = 1 };
 ```
 
-### Build firmware
+### 3.2 Build firmware
 
 After you finish the changes, then please follow Prusa buddy firmware build instructions to build your firmware, it is [here](https://github.com/prusa3d/Prusa-Firmware-Buddy).
 
-## <span id="jump">Upload firmware</span>
+## 4 <span id="jump">Upload firmware</span>
 
 If you generate a ```.bbf``` file , you just need to copy the file to USB disk and plug it into machine and then reboot the machine.
 
@@ -57,7 +63,7 @@ https://www.st.com/zh/development-tools/stm32cubeprog.html
 
 ---
 
-### Step 3: Download 
+### Step 3: Download
 
 ![STM32CUBEP](upload.png)
 
