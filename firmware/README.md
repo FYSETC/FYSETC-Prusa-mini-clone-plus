@@ -6,7 +6,7 @@ You can use the pre-compiled firmware or custom firmware for  FYSETC Prusa mini 
 
 ### 1.1 For plus kit
 
-There is pre-build firmware for you. It is ```RELEASE-4.3.3-Modified-boot2.0.2.zip```(You need to unzip it to get .hex file) beside this `README` file which is base on PRUSA firmware `RELEASE-4.3.3` version. You can directly upload this firmware to the board. Follow the [Upload firmware](#jump) instructions.
+There are two pre-build firmwares for you. They are ```RELEASE-4.3.3-Modified-boot2.0.2.zip``` and `RELEASE-4.4.1-Modified-boot2.0.2.zip` (You need to unzip it to get .hex file) beside this `README` file which are base on PRUSA firmware `RELEASE-4.3.3` and `RELEASE-4.4.1` version. You can directly upload this firmware to the board. Follow the [Upload firmware](#jump) instructions.
 
 ### 1.2 Back to prusa firmware
 
